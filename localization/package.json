@@ -1,0 +1,6 @@
+{
+  "name": "localization",
+  "devDependencies": {
+    "@types/i18n-js": "^3.8.3"
+  }
+}

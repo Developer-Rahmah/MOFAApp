@@ -1,0 +1,15 @@
+export { default as CalendarIcon } from "./CalendarIcon";
+export { default as SpeakersIcon } from "./SpeakersIcon";
+export { default as CrowdfundingIcon } from "./CrowdfundingIcon";
+export { default as ProductIcon } from "./ProductIcon";
+export { default as NewsIcon } from "./NewsIcon";
+export { default as PostIcon } from "./Post";
+// export { default as Linkedin } from './Linkedin';
+export { default as Send } from "./Send";
+// export { default as ShareIcon } from './ShareIcon';
+export { default as ChangePasswordIcon } from "./SVGChangePassword";
+export { default as ELearning } from "./ELearning";
+export { default as SVGArrow } from "./SVGArrow";
+export { default as SVGSearch } from "./SVGSearch";
+export { default as SVGMore } from "./SVGMore";
+export { default as SVGHome } from "./SVGHome";
