@@ -34,6 +34,8 @@
     "react-hook-form": "^7.41.0",
     "react-native": "0.70.5",
     "react-native-app-intro-slider": "^4.0.4",
+    "react-native-dropdown-picker": "^5.4.4",
+    "react-native-element-dropdown": "^2.5.3",
     "react-native-gesture-handler": "^2.8.0",
     "react-native-modal": "^13.0.1",
     "react-native-progress-bar": "^0.1.2",

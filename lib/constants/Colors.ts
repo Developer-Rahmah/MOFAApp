@@ -63,4 +63,5 @@ export const Colors = {
   gradientColor3: "#414069",
   gray2: "rgba(225, 218, 210, 0.2)",
   gray3: "#E1DAD2",
+  blue: "#9DCBEC",
 };

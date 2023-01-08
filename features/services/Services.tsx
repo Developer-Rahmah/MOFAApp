@@ -44,74 +44,11 @@ import { ScrollView } from "native-base";
 import { Colors, Fonts } from "lib/constants";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { DrawerActions, useNavigation } from "@react-navigation/native";
+import Routes from "routes/Routes";
 
 const limit = 10;
 let content = [];
 
-const DATA = [
-  {
-    id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
-    title: { en: "Favorites", ar: "المفضلة" },
-    data: [
-      {
-        id: "1",
-        serviceName: { en: "Birth Certificates", ar: "شهادات الميلاد" },
-        IconName: <BirthCertificates />,
-      },
-      {
-        id: "22",
-        serviceName: { en: "Appointments", ar: "شهادات الميلاد" },
-        IconName: <Appointments />,
-      },
-      {
-        id: "33",
-        serviceName: { en: "ID Cards", ar: "شهادات الميلاد" },
-        IconName: <IDCards />,
-      },
-      {
-        id: "33",
-        serviceName: { en: "Visa Invitations", ar: "شهادات الميلاد" },
-        IconName: <VisaInvitations />,
-      },
-    ],
-  },
-  {
-    id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
-    title: { en: "Embassy Services", ar: "خدمات السفارة" },
-    data: [
-      {
-        id: "2",
-        serviceName: { en: "Passports", ar: "شهادات الميلاد" },
-        IconName: <Passports />,
-      },
-      {
-        id: "2",
-        serviceName: { en: "Attestation", ar: "شهادات الميلاد" },
-        IconName: <Attestation />,
-      },
-      {
-        id: "3",
-        serviceName: { en: "Appointments", ar: "شهادات الميلاد" },
-        IconName: <Appointments />,
-      },
-      {
-        id: "33",
-        serviceName: { en: "Birth Certificates", ar: "شهادات الميلاد" },
-        IconName: <BirthCertificates />,
-      },
-      {
-        id: "33",
-        serviceName: { en: "ID Cards", ar: "شهادات الميلاد" },
-        IconName: <IDCards />,
-      },
-      {
-        id: "33",
-        serviceName: { en: "Visa Invitations", ar: "شهادات الميلاد" },
-        IconName: <VisaInvitations />,
-      },
-    ],
-  },
-];
 /**
  * A function component that shows a home screen.
  */
@@ -122,6 +59,78 @@ function ServicesScreen({ navigation }: ServicesScreenProps) {
   // const navigation = useNavigation();
   //state
   const [activeSlide, setActiveSlide] = useState(0);
+
+  const DATA = [
+    {
+      id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
+      title: { en: "Favorites", ar: "المفضلة" },
+      data: [
+        {
+          id: "33",
+          serviceName: { en: "Visa Invitations", ar: "دعوات تأشيرات" },
+          IconName: <VisaInvitations />,
+        },
+        {
+          id: "33",
+          serviceName: { en: "ID Cards", ar: "الهوية الوطنية" },
+          IconName: <IDCards />,
+        },
+        {
+          id: "22",
+          serviceName: { en: "Appointments", ar: "المواعيد" },
+          IconName: <Appointments />,
+        },
+
+        {
+          id: "1",
+          serviceName: { en: "Birth Certificates", ar: "شهادات الميلاد" },
+          IconName: <BirthCertificates />,
+        },
+      ],
+    },
+    {
+      id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
+      title: { en: "Embassy Services", ar: "خدمات السفارة" },
+      data: [
+        {
+          id: "2",
+          serviceName: { en: "Passports", ar: "الشهادات" },
+          IconName: <Attestation />,
+        },
+        {
+          id: "2",
+          serviceName: { en: "Attestation", ar: "المواعيد" },
+          IconName: <Appointments />,
+        },
+        {
+          id: "3",
+          serviceName: { en: "Appointments", ar: "الوثائق الرسمية" },
+          IconName: <BirthCertificates />,
+        },
+        {
+          id: "33",
+          serviceName: { en: "Birth Certificates", ar: "جوازات السفر" },
+          IconName: (
+            <TouchableOpacity
+              onPress={() => navigation.navigate(Routes.RenewPassportScreen)}
+            >
+              <Passports />
+            </TouchableOpacity>
+          ),
+        },
+        {
+          id: "33",
+          serviceName: { en: "ID Cards", ar: "خدمات الوزارة" },
+          IconName: <MofaService />,
+        },
+        {
+          id: "33",
+          serviceName: { en: "Visa Invitations", ar: " دعوات تأشيرات" },
+          IconName: <VisaInvitations />,
+        },
+      ],
+    },
+  ];
   useEffect(() => {
     for (let i = 0; i < News.length; i++) {
       content.push(
@@ -190,7 +199,10 @@ function ServicesScreen({ navigation }: ServicesScreenProps) {
               style={styles.idSliderTxt}
               text={`${isEN ? User.ID.en : User.ID.ar}`}
             />
-            <TouchableOpacity style={styles.singleNeutralIDCardContainer}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate(Routes.DigitalIDsScreen)}
+              style={styles.singleNeutralIDCardContainer}
+            >
               <SingleNeutralIDCard />
               <Text style={styles.docsTxt} text={`الوثائق الرقمية`} />
             </TouchableOpacity>
@@ -329,10 +341,19 @@ function ServicesScreen({ navigation }: ServicesScreenProps) {
             let Icon = item.IconName;
 
             return (
-              <View style={styles.serviceItemContainer}>
+              <View
+                style={[
+                  styles.serviceItemContainer,
+                  {
+                    height: 76,
+                    justifyContent: "flex-start",
+                  },
+                ]}
+              >
                 <View
                   style={[
                     styles.serviceIconContainer,
+
                     {
                       backgroundColor:
                         section.title.en === "Favorites"

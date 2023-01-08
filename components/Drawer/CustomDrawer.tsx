@@ -1,6 +1,7 @@
 import React from "react";
 import {
   ActivityIndicator,
+  Platform,
   TouchableOpacity,
   useWindowDimensions,
   View,
@@ -28,7 +29,7 @@ import Logout from "../../assets/svgs/logout.svg";
 import LocalStorageService from "services/LocalStorageService";
 import { updateUser } from "state/slices/AuthSlice";
 import { useDispatch } from "react-redux";
-import Footer from "../../assets/svgs/footer.svg";
+import Footer from "../../assets/svgs/footer2.svg";
 
 /**
  * A function component that shows a button.
@@ -48,65 +49,69 @@ function CustomDrawer(props: any) {
   const width = useWindowDimensions().width * 0.3;
 
   return (
-    <DrawerContentScrollView {...props} style={styles.container}>
-      <View style={styles.menuWrapper}>
-        <View style={styles.menuContainer}>
-          <TouchableOpacity onPress={() => props.navigation.closeDrawer()}>
-            <Close />
+    <>
+      <DrawerContentScrollView {...props} style={styles.container}>
+        <View style={styles.menuWrapper}>
+          <View style={styles.menuContainer}>
+            <TouchableOpacity onPress={() => props.navigation.closeDrawer()}>
+              <Close />
+            </TouchableOpacity>
+            <Text style={styles.menuTxt} text="القائمة" />
+          </View>
+          <View style={styles.menuContainer}>
+            <Settings />
+            <Text style={styles.menuItemTxt} text="إعدادات التطبيق" />
+          </View>
+          <View style={styles.divider} />
+          <View style={styles.menuContainer}>
+            <ColorPicker />
+            <Text style={styles.menuItemTxt} text="نمط الآلوان" />
+          </View>
+          <View style={styles.divider} />
+
+          <View style={styles.menuContainer}>
+            <SmallLogo />
+            <Text style={styles.menuItemTxt} text="عن التطبيق" />
+          </View>
+          <View style={styles.divider} />
+
+          <View style={styles.menuContainer}>
+            <Lock />
+            <Text style={styles.menuItemTxt} text="الخصوصية" />
+          </View>
+          <View style={styles.divider} />
+          <View style={styles.menuContainer}>
+            <BookMark />
+            <Text style={styles.menuItemTxt} text="الأحكام وشروط الاستخدام" />
+          </View>
+          <View style={styles.divider} />
+
+          <View style={styles.menuContainer}>
+            <Twitter />
+            <Text style={styles.menuItemTxt} text="@MOFA" />
+          </View>
+          <View style={styles.divider} />
+
+          <TouchableOpacity
+            onPress={() => onLogoutPress()}
+            style={styles.menuContainer}
+          >
+            <Logout />
+            <Text style={styles.menuItemTxt} text="تسجيل الخروج" />
           </TouchableOpacity>
-          <Text style={styles.menuTxt} text="القائمة" />
+          <View style={styles.divider} />
+          <View style={{ paddingTop: Platform.OS === "ios" ? 70 : 70 }}>
+            <Text
+              style={[styles.menuItemTxt, { fontSize: 12 }]}
+              text="تطبيق تجريبي 1.0"
+            />
+          </View>
         </View>
-        <View style={styles.menuContainer}>
-          <Settings />
-          <Text style={styles.menuItemTxt} text="إعدادات التطبيق" />
-        </View>
-        <View style={styles.divider} />
-        <View style={styles.menuContainer}>
-          <ColorPicker />
-          <Text style={styles.menuItemTxt} text="نمط الآلوان" />
-        </View>
-        <View style={styles.divider} />
-
-        <View style={styles.menuContainer}>
-          <SmallLogo />
-          <Text style={styles.menuItemTxt} text="عن التطبيق" />
-        </View>
-        <View style={styles.divider} />
-
-        <View style={styles.menuContainer}>
-          <Lock />
-          <Text style={styles.menuItemTxt} text="الخصوصية" />
-        </View>
-        <View style={styles.divider} />
-        <View style={styles.menuContainer}>
-          <BookMark />
-          <Text style={styles.menuItemTxt} text="الأحكام وشروط الاستخدام" />
-        </View>
-        <View style={styles.divider} />
-
-        <View style={styles.menuContainer}>
-          <Twitter />
-          <Text style={styles.menuItemTxt} text="@MOFA" />
-        </View>
-        <View style={styles.divider} />
-
-        <TouchableOpacity
-          onPress={() => onLogoutPress()}
-          style={styles.menuContainer}
-        >
-          <Logout />
-          <Text style={styles.menuItemTxt} text="تسجيل الخروج" />
-        </TouchableOpacity>
-        <View style={styles.divider} />
-        <View style={{ paddingTop: 100 }}>
-          <Text
-            style={[styles.menuItemTxt, { fontSize: 12 }]}
-            text="تطبيق تجريبي 1.0"
-          />
-        </View>
+      </DrawerContentScrollView>
+      <View style={styles.footerContainer}>
+        <Footer opacity={0.5} width={"100%"} />
       </View>
-      <Footer />
-    </DrawerContentScrollView>
+    </>
   );
 }
 

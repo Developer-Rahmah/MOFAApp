@@ -2,6 +2,7 @@ import React from "react";
 
 import ServicesScreen from "../features/services/Services";
 import DigitalIDsScreen from "../features/services/DigitalIDs";
+import RenewPassportScreen from "../features/services/RenewPassport";
 
 import { HomeStackParamList } from "navigationTypes";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -39,6 +40,10 @@ export const ServicesTab: React.FC = () => (
   >
     <HomeStack.Screen name="ServicesScreen" component={ServicesScreen} />
     <HomeStack.Screen name="DigitalIDsScreen" component={DigitalIDsScreen} />
+    <HomeStack.Screen
+      name="RenewPassportScreen"
+      component={RenewPassportScreen}
+    />
 
     {/* <Drawer.Navigator>
       <Drawer.Screen name="drawer" component={HomeScreen} />

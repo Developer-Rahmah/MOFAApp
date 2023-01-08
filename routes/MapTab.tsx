@@ -1,6 +1,6 @@
 import React from "react";
 
-import ServicesScreen from "../features/services/Services";
+import MapScreen from "../features/map/Map";
 import { HomeStackParamList } from "navigationTypes";
 import { createStackNavigator } from "@react-navigation/stack";
 
@@ -22,6 +22,6 @@ export const MapTab: React.FC = () => (
       }),
     }}
   >
-    <HomeStack.Screen name="ServicesScreen" component={ServicesScreen} />
+    <HomeStack.Screen name="MapScreen" component={MapScreen} />
   </HomeStack.Navigator>
 );

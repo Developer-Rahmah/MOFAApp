@@ -14,8 +14,12 @@ export enum Routes {
   RequestsTab = "RequestsTab",
   MainNavigator = "MainNavigator",
   DigitalIDsScreen = "DigitalIDsScreen",
+  RenewPassportScreen = "RenewPassportScreen",
   ServicesScreen = "ServicesScreen",
   Profile = "Profile",
+  HelpScreen = "HelpScreen",
+  "MapScreen" = "MapScreen",
+  RequestsScreen = "RequestsScreen",
   NoInternetConnectionScreen = "NoInternetConnectionScreen",
 }
 

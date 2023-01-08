@@ -1,6 +1,6 @@
 import React from "react";
 
-import ServicesScreen from "../features/services/Services";
+import RequestsScreen from "../features/requests/Requests";
 import { HomeStackParamList } from "navigationTypes";
 import { createStackNavigator } from "@react-navigation/stack";
 
@@ -22,6 +22,6 @@ export const RequestsTab: React.FC = () => (
       }),
     }}
   >
-    <HomeStack.Screen name="ServicesScreen" component={ServicesScreen} />
+    <HomeStack.Screen name="RequestsScreen" component={RequestsScreen} />
   </HomeStack.Navigator>
 );

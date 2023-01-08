@@ -33,8 +33,8 @@ const TextField: React.FC<TextFieldProps> = (props: any) => {
           numberOfLines={0}
           style={[
             styles.label,
-            { color: Colors.dark_gray, alignSelf: "center", marginBottom: 10 },
-            textFieldStyle,
+            { color: Colors.black, marginBottom: 10 },
+            // textFieldStyle,
           ]}
           text={label}
         />

@@ -9,6 +9,8 @@ import {
 } from "react-native";
 import styles from "./styles";
 import ArrowRight from "../../assets/svgs/arrow-right.svg";
+import { Colors, Fonts } from "lib/constants";
+import { Button } from "..";
 
 export interface StepperProps {
   active: number;
@@ -22,6 +24,9 @@ export interface StepperProps {
   buttonStyle?: ViewStyle;
   buttonTextStyle?: TextStyle;
   showButton?: boolean;
+  customizeStep?: any;
+  stepTitles?: any;
+  customizeBtn: any;
 }
 
 const search = (keyName: number, myArray: number[]): boolean => {
@@ -47,6 +52,9 @@ export const Stepper: FC<StepperProps> = (props) => {
     buttonStyle,
     buttonTextStyle,
     showButton = true,
+    customizeStep: customizeStep,
+    stepTitles,
+    customizeBtn,
   } = props;
   const [step, setStep] = useState<number[]>([0]);
   const pushData = (val: number) => {
@@ -62,68 +70,136 @@ export const Stepper: FC<StepperProps> = (props) => {
   return (
     <View style={wrapperStyle}>
       <View style={styles.secWrapper}>
-        {content.map((_, i) => {
-          return (
-            <React.Fragment key={i}>
-              {i !== 0 && <View style={styles.stepWrapper} />}
-              <View
-                style={[
-                  styles.step,
-                  { opacity: search(i, step) ? 1 : 0.3 },
-                  stepStyle,
-                ]}
-              >
-                {search(i, step) ? (
-                  <Text
+        {stepTitles
+          ? stepTitles.map((item, i) => {
+              return (
+                <React.Fragment key={i}>
+                  {i !== 0 && (
+                    <View style={[styles.stepWrapper, { flex: 0.2 }]} />
+                  )}
+                  <View
                     style={[
+                      styles.step,
                       {
-                        color: "white",
+                        opacity: search(i, step) ? 1 : 0.3,
+                        width: "20%",
+                        height: 60,
+                        justifyContent: "flex-end",
+                        alignItems: "center",
                       },
-                      stepTextStyle,
+                      stepStyle,
+                      { borderRadius: 0 },
                     ]}
                   >
-                    ━━━━
-                  </Text>
-                ) : (
-                  <Text
+                    <Text
+                      numberOfLines={2}
+                      style={{
+                        fontSize: 12,
+                        fontFamily: Fonts.regular,
+                        textAlign: "center",
+                        lineHeight: 20,
+                      }}
+                    >
+                      {item}
+                    </Text>
+                    <View
+                      style={{
+                        height: 2,
+                        opacity: search(i, step) ? 1 : 0.3,
+                        backgroundColor: Colors.primaryColor,
+                        width: "100%",
+                        marginTop: 10,
+                      }}
+                    />
+                  </View>
+                </React.Fragment>
+              );
+            })
+          : content.map((_, i) => {
+              return (
+                <React.Fragment key={i}>
+                  {i !== 0 && <View style={styles.stepWrapper} />}
+                  <View
                     style={[
-                      {
-                        color: "white",
-                      },
-                      stepTextStyle,
+                      styles.step,
+                      { opacity: search(i, step) ? 1 : 0.3 },
+                      stepStyle,
                     ]}
                   >
-                    ━━━━
-                  </Text>
-                )}
-              </View>
-            </React.Fragment>
-          );
-        })}
+                    {search(i, step) ? (
+                      <Text
+                        style={[
+                          {
+                            color: "white",
+                          },
+                          stepTextStyle,
+                        ]}
+                      >
+                        {customizeStep ? customizeStep : "━━━━"}
+                      </Text>
+                    ) : (
+                      <Text
+                        style={[
+                          {
+                            color: "white",
+                          },
+                          stepTextStyle,
+                        ]}
+                      >
+                        {customizeStep ? customizeStep : "━━━━"}
+                      </Text>
+                    )}
+                  </View>
+                </React.Fragment>
+              );
+            })}
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
         {content[active]}
       </ScrollView>
-      {showButton && (
-        <View
-          style={{
-            flexDirection: "row",
-          }}
-        >
-          <View style={styles.nextWrapper}>
-            <TouchableOpacity
-              disabled={content.length - 1 === active}
-              style={[styles.iconContainer, buttonStyle]}
+
+      {showButton &&
+        (customizeBtn ? (
+          <View
+            style={{
+              //   position: "absolute",
+              left: 0,
+              right: 0,
+              bottom: 0,
+            }}
+          >
+            <Button
+              locked={content.length - 1 === active}
+              width="90%"
+              style={{ alignSelf: "center" }}
               onPress={() => {
                 pushData(active + 1);
                 onNext();
               }}
-            >
-              <ArrowRight />
-            </TouchableOpacity>
+              text={"تابع"}
+              textStyle={{ lineHeight: 23 }}
+            />
           </View>
-        </View>
-      )}
+        ) : (
+          <View
+            style={{
+              flexDirection: "row",
+            }}
+          >
+            <View style={styles.nextWrapper}>
+              <TouchableOpacity
+                disabled={content.length - 1 === active}
+                style={[styles.iconContainer, buttonStyle]}
+                onPress={() => {
+                  pushData(active + 1);
+                  onNext();
+                }}
+              >
+                <ArrowRight />
+              </TouchableOpacity>
+            </View>
+          </View>
+        ))}
     </View>
   );
 };

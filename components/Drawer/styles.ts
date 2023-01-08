@@ -1,5 +1,5 @@
 import { Colors, Fonts } from "lib/constants";
-import { StyleSheet } from "react-native";
+import { Platform, StyleSheet } from "react-native";
 
 // constants.
 const semiCircleSize = 400;
@@ -22,28 +22,38 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   menuWrapper: {
-    flex: 1,
     backgroundColor: Colors.primaryColor,
-    paddingStart: 32,
+    alignItems: "flex-start",
+    paddingStart: Platform.OS === "ios" ? 32 : 0,
+    start: Platform.OS === "android" ? 32 : 0,
   },
   menuTxt: {
     color: Colors.white,
     marginBottom: 50,
     fontFamily: Fonts.Almarai700,
-    start: 12,
+    top: -4,
+
     fontSize: 18,
+    paddingStart: Platform.OS === "ios" ? 12 : 0,
+    start: Platform.OS === "android" ? 12 : 0,
   },
   menuItemTxt: {
     color: Colors.white,
     marginBottom: 16,
     fontSize: 16,
-    paddingStart: 12,
+    paddingStart: Platform.OS === "ios" ? 12 : 0,
+    paddingRight: Platform.OS === "android" ? 12 : 0,
   },
   divider: {
-    width: "85%",
-    height: 1,
+    width: "80%",
+    height: 0.75,
     backgroundColor: Colors.white,
     marginBottom: 16,
+  },
+  footerContainer: {
+    width: "100%",
+    position: "absolute",
+    bottom: 0,
   },
 });
 

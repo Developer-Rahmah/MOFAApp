@@ -8,7 +8,12 @@ import Routes from "routes/Routes";
 export type RootStackParamList = {
   [Routes.BottomTabNavigator]: NavigatorScreenParams<BottomTabParamList>;
   [Routes.Profile]: undefined;
+  [Routes.DigitalIDsScreen]: undefined;
+  [Routes.RenewPassportScreen]: undefined;
   [Routes.NoInternetConnectionScreen]: undefined;
+  [Routes.HelpScreen]: undefined;
+  [Routes.MapScreen]: undefined;
+  [Routes.RequestsScreen]: undefined;
 };
 export type AuthStackParamsList = {
   Login: undefined;
@@ -18,7 +23,11 @@ export type AuthStackParamsList = {
 export type HomeStackParamList = {
   ServicesScreen: undefined;
   DigitalIDsScreen: undefined;
+  RenewPassportScreen: undefined;
   ProfileSettings: undefined;
+  HelpScreen: undefined;
+  MapScreen: undefined;
+  RequestsScreen: undefined;
 };
 export type MoreStackParamList = {
   Profile: undefined;

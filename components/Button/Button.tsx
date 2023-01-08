@@ -45,6 +45,12 @@ function Button({
       ]}
     >
       <TouchableOpacity
+        style={{
+          width: "100%",
+          justifyContent: "center",
+          alignItems: "center",
+          flexDirection: "row",
+        }}
         activeOpacity={0.8}
         onPress={handlePress}
         disabled={locked}

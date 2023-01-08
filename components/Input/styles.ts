@@ -1,7 +1,7 @@
 import Fonts from "lib/constants/Fonts";
 import { Platform } from "react-native";
 import { StyleSheet } from "react-native";
-import { Colors, commonStyles } from "lib/constants";
+import { Colors, commonStyles, getCrossElevation } from "lib/constants";
 
 const styles = StyleSheet.create({
   container: {
@@ -12,28 +12,33 @@ const styles = StyleSheet.create({
   inputContainer: {
     alignItems: Platform.OS == "android" ? "flex-end" : "flex-start",
     width: "100%",
-    marginBottom: 5,
+    marginBottom: 10,
     paddingHorizontal: 25,
     paddingTop: 10,
   },
   label: {
-    fontFamily: Fonts.book,
+    fontFamily: Fonts.regular,
     fontSize: 14,
+    start: 10,
+
     ...commonStyles.crossTextAlign,
   },
   input: {
     borderRadius: 20,
-    paddingTop: 19,
+    padding: 10,
     paddingHorizontal: 10,
-    borderBottomWidth: 0,
-    paddingBottom: 21,
+    borderWidth: 1,
+    // paddingBottom: 21,
     width: "100%",
-    backgroundColor: Colors.light_gray,
-    alignItems: "center",
+    borderColor: Colors.light_gray,
+    alignItems: "flex-start",
     flexDirection: "row",
-    fontFamily: Fonts.book,
-    fontSize: 18,
+    fontFamily: Fonts.regular,
+    alignSelf: "flex-start",
+    fontSize: 16,
+
     justifyContent: "center",
+    // ...getCrossElevation(7),
   },
   error: {
     marginTop: -9,

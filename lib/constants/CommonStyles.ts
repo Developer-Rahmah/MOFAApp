@@ -40,10 +40,10 @@ const commonStyles = StyleSheet.create({
 // Gets cross elevation.
 export function getCrossElevation(
   shadowRadius = 5,
-  shadowOpacity = 1,
-  androidElevation = 1
+  shadowOpacity = 0.5,
+  androidElevation = 0.7
 ) {
-  const shadowColor = Colors.shadow_color;
+  const shadowColor = Colors.black;
   return {
     ...Platform.select({
       android: {

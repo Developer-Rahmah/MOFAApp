@@ -7,13 +7,12 @@ import styled from "styled-components/native";
 export const UserDataContainer = styled.View`
   justify-content: space-between;
   flex-direction: ${Platform.select({ ios: "row", android: "row" })};
+  height: 106px;
   align-items: center;
-  padding: 0px 16px;
-  background-color: transparent;
-  margin-top: 50px;
-  align-items: flex-start;
+  padding-top: ${Platform.OS === "ios" ? 29 : 0};
+  background: #f7f7f7;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 `;
-
 export const HeaderText = styled.Text<HeaderTxtTypeProps>`
   color: ${(props) => (props.txtColor ? props.txtColor : Colors.white)};
   font-size: 21px;
@@ -23,11 +22,5 @@ export const HeaderText = styled.Text<HeaderTxtTypeProps>`
 export const BackButton = styled(
   Platform.OS === "android" ? TouchableWithoutFeedback : TouchableOpacity
 )`
-  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  border-radius: 20px;
-  height: 35px;
-  width: 35px;
-  background-color: #a9a9a9;
 `;

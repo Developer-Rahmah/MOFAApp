@@ -14,15 +14,15 @@ export const BottomTabButton: React.FC<BottomTabButtonProps> = ({
   return (
     <TouchableOpacity style={[styles.internalTabbarBtnStyle]} onPress={onPress}>
       <Icon
-        fill={focused ? Colors.secondaryColor : "transparent"}
+        // fill={focused ? Colors.secondaryColor : "transparent"}
         height={25}
         width={25}
-        style={[focused && { fill: Colors.primaryColor }]}
+        // style={[focused && { fill: Colors.primaryColor }]}
       />
       <Text
         style={[
           styles.label,
-          { color: focused ? Colors.primaryColor : Colors.black },
+          // { color: focused ? Colors.primaryColor : Colors.black },
         ]}
         text={label}
       />
