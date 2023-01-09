@@ -18,6 +18,7 @@ export type RootStackParamList = {
 export type AuthStackParamsList = {
   Login: undefined;
   ProfileScreen: undefined;
+  [Routes.SlidersIntroScreen]: undefined;
 };
 
 export type HomeStackParamList = {

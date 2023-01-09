@@ -19,7 +19,6 @@ import { Translate } from "localization/Translate";
 import { ScrollView } from "native-base";
 import { langSelector, updateLang } from "state/slices/Lang";
 import LocalStorageBasicService from "services/LocalStorageBasicService";
-import * as Updates from "expo-updates";
 
 import Footer from "../../assets/svgs/footer.svg";
 import Logo from "../../assets/svgs/logo.svg";
@@ -27,6 +26,7 @@ import Logo from "../../assets/svgs/logo.svg";
 import LoginViaNafazAr from "../../assets/svgs/login-via-nafaz-ar.svg";
 import LoginViaNafazEn from "../../assets/svgs/login-via-nafaz-en.svg";
 import { User } from "services/mockData/User";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 // constants.
 const oauthService = OauthService.getService();
@@ -56,14 +56,7 @@ function SignInScreen() {
       showCrossToast(e.message);
     }
   };
-  const toggleSwitchLang = () => {
-    setIsEN((previousState) => !previousState);
-    dispatch(updateLang(lang === "ar" ? "en" : "ar"));
 
-    localStorageBasicService.setLang(lang === "ar" ? "en" : "ar");
-    I18nManager.forceRTL(lang === "en");
-    Updates.reloadAsync();
-  };
   return (
     <>
       <KeyboardAvoidingView
@@ -87,7 +80,7 @@ function SignInScreen() {
               />
               <View style={styles.formContainer}>
                 <View style={styles.loginBtnContainer}>
-                  <Button
+                  {/* <Button
                     width="100%"
                     onPress={onLogin}
                     locked={false}
@@ -104,12 +97,19 @@ function SignInScreen() {
                         </View>
                       )
                     }
-                  />
+                  /> */}
+                  <TouchableOpacity onPress={() => onLogin()}>
+                    {I18nManager.isRTL ? (
+                      <LoginViaNafazAr style={{ paddingHorizontal: 30 }} />
+                    ) : (
+                      <LoginViaNafazEn />
+                    )}
+                  </TouchableOpacity>
                 </View>
 
                 <View style={styles.loginBtnContainer}>
                   <Button
-                    width="100%"
+                    width={345}
                     onPress={() => null}
                     locked={false}
                     text={Translate(LocaleKeys.login.continueAsAquest)}

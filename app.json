@@ -14,18 +14,36 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.nofa.nofa",
+      "config": {
+        "googleMapsApiKey": "AIzaSyBmlxMGa0kk2_GikdmcP_wDC-Sh3k3u-Jw"
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
-      }
+        "backgroundColor": "#FFFFFF",
+        "package": "com.nofa.nofa",
+        "config": {
+          "googleMaps": {
+            "apiKey": "AIzaSyDVpQ8mrrMPofRID5MdHwyJanOCZoHvrzE"
+          }
+        }
+      },
+      "package": "com.nofa.nofa"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "d9939512-c7eb-465b-82ce-bae7f0bace2a"
+      }
     }
   }
 }

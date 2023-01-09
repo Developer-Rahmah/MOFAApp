@@ -1,7 +1,4 @@
-import {
-  createStackNavigator,
-  TransitionPresets,
-} from "@react-navigation/stack";
+import { createStackNavigator } from "@react-navigation/stack";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import SignInScreen from "../features/SignIn/SignIn";
@@ -12,14 +9,12 @@ import Routes from "./Routes";
 import { useNetInfo } from "lib/hooks/useNetInfo";
 import NoInternetConnectionScreen from "../features/NoInternetConnectionScreen/NoInternetConnectionScreen";
 import { AuthStackParamsList, RootStackParamList } from "navigationTypes";
-import { I18nManager, View } from "react-native";
+import { I18nManager } from "react-native";
 import { updateLang } from "state/slices/Lang";
 import LocalStorageBasicService from "services/LocalStorageBasicService";
 import SetLocale from "localization/SetLocale";
 import SlidersIntroScreen from "../features/slidersIntro/SlidersIntroScreen";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import { HomeScreen } from "./ServicesTab";
-import { Layout } from "lib/constants";
 import { CustomDrawer } from "components/index";
 // import { MainNavigator } from ".";
 

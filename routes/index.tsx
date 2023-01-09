@@ -10,7 +10,7 @@ import {
 } from "@react-navigation/native";
 import { updateCurrentRoute } from "state/slices/General";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import ServicesScreen from "../features/services/Services";
+import HomeScreen from "../features/home/Home";
 
 // type checking.
 type Props = {
@@ -20,7 +20,7 @@ const Drawer = createDrawerNavigator();
 export function MainNavigator() {
   return (
     <Drawer.Navigator>
-      <Drawer.Screen name="drawer" component={ServicesScreen} />
+      <Drawer.Screen name="drawer" component={HomeScreen} />
     </Drawer.Navigator>
   );
 }

@@ -7,18 +7,15 @@ const semiCircleSize = 400;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: 24,
+    // paddingHorizontal: 24,
     backgroundColor: Colors.white,
     paddingTop: 77,
     alignItems: "center",
   },
 
-  headerListTxt: {
-    fontSize: 16,
-    alignItems: "center",
-    color: Colors.black,
-    fontFamily: Fonts.Almarai700,
-    padding: 10,
+  map: {
+    width: "100%",
+    height: "100%",
   },
 });
 

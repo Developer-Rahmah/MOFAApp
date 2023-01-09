@@ -1,13 +1,18 @@
 import { View } from "react-native";
 import styles from "./styles";
 import { ServicesScreenProps } from "navigationTypes";
-
+import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
 import { Text } from "components/index";
 
 function MapScreen({ navigation }: ServicesScreenProps) {
   return (
     <View style={styles.container}>
-      <Text style={styles.headerListTxt} text={"MapScreen"}></Text>
+      <MapView
+        style={styles.map}
+        showsUserLocation={true}
+        provider={PROVIDER_GOOGLE}
+        showsMyLocationButton={true}
+      />
     </View>
   );
 }

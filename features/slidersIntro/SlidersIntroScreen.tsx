@@ -13,7 +13,6 @@ import Text from "../../components/Text/Text";
 import styles from "./styles";
 // import { slides } from "helpers/slides";
 import { commonStyles } from "lib/constants";
-import { DotsSlider, SliderListItem } from "components/index";
 import { getSlideIndexForHorizontalList } from "helpers/general";
 import { LocaleKeys, Translate } from "localization";
 import { useNavigation } from "@react-navigation/native";
@@ -21,6 +20,8 @@ import Routes from "routes/Routes";
 import SkipAr from "../../assets/svgs/skip-ar.svg";
 import SkipEn from "../../assets/svgs/skip-en.svg";
 import Footer from "../../assets/svgs/footer.svg";
+import DotsSlider from "components/dotsSlider/dotsSlider";
+import SliderListItem from "components/sliderListItem";
 
 function SlidersIntroScreen() {
   const navigation = useNavigation();

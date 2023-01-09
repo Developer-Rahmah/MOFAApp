@@ -1,11 +1,8 @@
 import * as React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigatorScreenParams } from "@react-navigation/native";
-import Home from "../assets/svgs/SVGHome";
-import More from "../assets/svgs/SVGMore";
 import BottomTab from "../components/BottomTabButton";
 import { ServicesTab } from "./ServicesTab";
-import MoreTab from "./MoreTab";
 import Routes from "./Routes";
 import { HomeStackParamList, MoreStackParamList } from "navigationTypes";
 import { MapTab } from "./MapTab";
@@ -15,8 +12,10 @@ import Help from "../assets/svgs/help.svg";
 import Services from "../assets/svgs/services.svg";
 import Map from "../assets/svgs/map.svg";
 import Requests from "../assets/svgs/requests.svg";
+import Home from "../assets/svgs/home.svg";
 import { LocaleKeys } from "localization/LocaleKeys";
 import { Translate } from "localization/Translate";
+import { HomeTab } from "./HomeTab";
 // type checking.
 export type BottomTabParamList = {
   ServicesTab: NavigatorScreenParams<HomeStackParamList>;
@@ -24,6 +23,7 @@ export type BottomTabParamList = {
   MapTab: NavigatorScreenParams<HomeStackParamList>;
   RequestsTab: NavigatorScreenParams<HomeStackParamList>;
   HelpTab: NavigatorScreenParams<HomeStackParamList>;
+  HomeTab: NavigatorScreenParams<HomeStackParamList>;
 };
 // create bottom tab navigator.
 const Tab = createBottomTabNavigator<BottomTabParamList>();
@@ -52,6 +52,14 @@ export const BottomTabNavigator: React.FC = () => {
         options={() => ({
           tabBarIcon: Requests,
           tabBarLabel: `${Translate(LocaleKeys.common.requests)}`,
+        })}
+      />
+      <Tab.Screen
+        name={Routes.HomeTab}
+        component={HomeTab}
+        options={() => ({
+          tabBarIcon: Home,
+          tabBarLabel: `${Translate(LocaleKeys.common.home)}`,
         })}
       />
       <Tab.Screen

@@ -12,6 +12,7 @@ export enum Routes {
   MapTab = "MapTab",
   HelpTab = "HelpTab",
   RequestsTab = "RequestsTab",
+  HomeTab = "HomeTab",
   MainNavigator = "MainNavigator",
   DigitalIDsScreen = "DigitalIDsScreen",
   RenewPassportScreen = "RenewPassportScreen",
@@ -20,6 +21,7 @@ export enum Routes {
   HelpScreen = "HelpScreen",
   "MapScreen" = "MapScreen",
   RequestsScreen = "RequestsScreen",
+  HomeScreen = "HomeScreen",
   NoInternetConnectionScreen = "NoInternetConnectionScreen",
 }
 
