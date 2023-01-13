@@ -20,6 +20,11 @@ const styles = StyleSheet.create({
     fontFamily: Fonts.Almarai700,
     padding: 10,
   },
+  title: {
+    fontFamily: Fonts.Almarai700,
+    fontSize: 16,
+    marginVertical: 10,
+  },
 });
 
 // export styles as default.

@@ -1,4 +1,10 @@
-import { Colors, Layout } from "lib/constants";
+import {
+  Colors,
+  commonStyles,
+  Fonts,
+  getCrossElevation,
+  Layout,
+} from "lib/constants";
 import fonts from "lib/constants/Fonts";
 import { StyleSheet } from "react-native";
 
@@ -34,6 +40,30 @@ const styles = StyleSheet.create({
     width: "100%",
     top: -30,
     justifyContent: "flex-end",
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22,
+    width: "100%",
+    backgroundColor: "transparent",
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: Colors.white,
+    borderRadius: 20,
+    padding: 25,
+    // alignItems: "center",
+    ...getCrossElevation(15, 0.53, 5),
+    width: "89%",
+  },
+  label: {
+    fontFamily: Fonts.regular,
+    fontSize: 16,
+    marginBottom: 7,
+    color: Colors.primaryColor,
+    ...commonStyles.crossTextAlign,
   },
 });
 

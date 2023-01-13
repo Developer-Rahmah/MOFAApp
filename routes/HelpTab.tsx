@@ -3,6 +3,7 @@ import React from "react";
 import HelpScreen from "../features/help/Help";
 import { HomeStackParamList } from "navigationTypes";
 import { createStackNavigator } from "@react-navigation/stack";
+import HelpDetailsScreen from "../features/help/helpDetails/HelpDetails";
 
 const HomeStack = createStackNavigator<HomeStackParamList>();
 
@@ -23,5 +24,6 @@ export const HelpTab: React.FC = () => (
     }}
   >
     <HomeStack.Screen name="HelpScreen" component={HelpScreen} />
+    <HomeStack.Screen name="HelpDetailsScreen" component={HelpDetailsScreen} />
   </HomeStack.Navigator>
 );

@@ -14,9 +14,7 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.nofa.nofa",
@@ -27,15 +25,12 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF",
-        "package": "com.nofa.nofa",
-        "config": {
-          "googleMaps": {
-            "apiKey": "AIzaSyDVpQ8mrrMPofRID5MdHwyJanOCZoHvrzE"
-          }
-        }
+        "backgroundColor": "#FFFFFF"
       },
-      "package": "com.nofa.nofa"
+      "package": "com.nofa.nofa",
+      "config": {
+        "googleMaps": { "apiKey": "AIzaSyDVpQ8mrrMPofRID5MdHwyJanOCZoHvrzE" }
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"

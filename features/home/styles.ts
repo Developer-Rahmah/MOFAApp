@@ -440,6 +440,16 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     width: "100%",
   },
+  mapViewWrapper: {
+    borderRadius: 20,
+    borderWidth: 1,
+    height: 165,
+    width: "100%",
+    borderColor: Colors.black,
+
+    fontFamily: Fonts.regular,
+    fontSize: 16,
+  },
 });
 
 // export styles as default.

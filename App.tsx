@@ -7,10 +7,10 @@ import Navigation from "./routes";
 import reduxStore from "./state";
 import { NativeBaseProvider } from "native-base";
 import { loadCustomFonts } from "./helpers/general";
-require("./ReactotronConfig");
+// require("./ReactotronConfig");
 
 // // ignore all warnings.
-LogBox.ignoreLogs(["Setting a timer"]);
+// LogBox.ignoreLogs(["Setting a timer"]);
 
 /**
  * A function

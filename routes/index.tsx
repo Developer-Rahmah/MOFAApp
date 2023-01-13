@@ -1,5 +1,5 @@
 import React, { useCallback, useRef } from "react";
-import { Button, ColorSchemeName, View } from "react-native";
+import { ColorSchemeName } from "react-native";
 import ScreenLoader from "../components/ScreenLoader/ScreenLoader";
 import RootNavigator from "./RootNavigator";
 import { useDispatch } from "react-redux";
@@ -9,21 +9,12 @@ import {
   useNavigationContainerRef,
 } from "@react-navigation/native";
 import { updateCurrentRoute } from "state/slices/General";
-import { createDrawerNavigator } from "@react-navigation/drawer";
-import HomeScreen from "../features/home/Home";
 
 // type checking.
 type Props = {
   colorScheme: ColorSchemeName;
 };
-const Drawer = createDrawerNavigator();
-export function MainNavigator() {
-  return (
-    <Drawer.Navigator>
-      <Drawer.Screen name="drawer" component={HomeScreen} />
-    </Drawer.Navigator>
-  );
-}
+
 // If you are not familiar with React Navigation, we recommend going through the
 // "Fundamentals" guide: https://reactnavigation.org/docs/getting-started
 //Pass this function inside the App.tsx file

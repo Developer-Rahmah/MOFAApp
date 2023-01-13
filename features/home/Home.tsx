@@ -168,9 +168,6 @@ function HomeScreen({ navigation }: ServicesScreenProps) {
     setActiveSlide(getSlideIndexForHorizontalList(e));
   };
 
-  /**
-   * Renders news item.
-   */
   const renderSlide = ({ item }: { item: any }) => {
     return (
       <SliderListItem

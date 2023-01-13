@@ -16,7 +16,6 @@ import SetLocale from "localization/SetLocale";
 import SlidersIntroScreen from "../features/slidersIntro/SlidersIntroScreen";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { CustomDrawer } from "components/index";
-// import { MainNavigator } from ".";
 
 // constants.
 // A root stack navigator is often used for displaying modals on top of all other content

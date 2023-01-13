@@ -11,6 +11,9 @@ import styles from "./styles";
 import ArrowRight from "../../assets/svgs/arrow-right.svg";
 import { Colors, Fonts } from "lib/constants";
 import { Button } from "..";
+import Modal from "react-native-modal";
+import Close from "../../assets/svgs/close2.svg";
+import Success from "../../assets/svgs/done.svg";
 
 export interface StepperProps {
   active: number;
@@ -27,6 +30,7 @@ export interface StepperProps {
   customizeStep?: any;
   stepTitles?: any;
   customizeBtn: any;
+  navigation: any;
 }
 
 const search = (keyName: number, myArray: number[]): boolean => {
@@ -55,8 +59,11 @@ export const Stepper: FC<StepperProps> = (props) => {
     customizeStep: customizeStep,
     stepTitles,
     customizeBtn,
+    navigation,
   } = props;
   const [step, setStep] = useState<number[]>([0]);
+  const [visible, setVisible] = useState<boolean>(false);
+
   const pushData = (val: number) => {
     setStep((prev) => [...prev, val]);
   };
@@ -66,6 +73,10 @@ export const Stepper: FC<StepperProps> = (props) => {
       prev.pop();
       return prev;
     });
+  };
+  const onDone = () => {
+    setVisible(false);
+    navigation.goBack();
   };
   return (
     <View style={wrapperStyle}>
@@ -174,11 +185,69 @@ export const Stepper: FC<StepperProps> = (props) => {
               style={{ alignSelf: "center" }}
               onPress={() => {
                 pushData(active + 1);
-                onNext();
+                if (active == 3) {
+                  setVisible(true);
+                } else {
+                  onNext();
+                }
               }}
               text={"تابع"}
               textStyle={{ lineHeight: 23 }}
             />
+            <Modal
+              onBackdropPress={() => setVisible(false)}
+              animationIn="fadeIn"
+              isVisible={visible}
+            >
+              <View style={styles.centeredView}>
+                <View style={styles.modalView}>
+                  <View>
+                    <View
+                      style={{
+                        justifyContent: "flex-start",
+                        width: "100%",
+                      }}
+                    >
+                      <TouchableOpacity onPress={onDone}>
+                        <Close width={30} height={30} fill={Colors.black} />
+                      </TouchableOpacity>
+                    </View>
+
+                    <View
+                      style={{
+                        justifyContent: "center",
+                        alignItems: "center",
+                        width: "100%",
+                      }}
+                    >
+                      <Success />
+                      <Text
+                        style={[
+                          styles.label,
+                          {
+                            paddingTop: 34,
+                            paddingBottom: 21,
+                            fontSize: 24,
+                            fontFamily: Fonts.Almarai700,
+                          },
+                        ]}
+                      >
+                        تم تقديم الطلب
+                      </Text>
+                      <Text style={[styles.label]}>
+                        طلبك لتجديد جواز السفر تم بنجاح
+                      </Text>
+                    </View>
+                  </View>
+                  {/* <Button
+                    width={345}
+                    onPress={onDone}
+                    locked={false}
+                    text={"done"}
+                  /> */}
+                </View>
+              </View>
+            </Modal>
           </View>
         ) : (
           <View

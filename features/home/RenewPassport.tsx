@@ -55,7 +55,7 @@ function RenewPassportScreen({ navigation }: ServicesScreenProps) {
         <FirstStep />,
         <SecondStep />,
         <ThirdStep />,
-        <FourthStep />
+        <FourthStep navigation={navigation} />
       );
     }
   }, [active]);
@@ -170,6 +170,7 @@ function RenewPassportScreen({ navigation }: ServicesScreenProps) {
               stepTextStyle={{ backgroundColor: "transparent" }}
               stepTitles={stepperTitles}
               customizeBtn={true}
+              navigation={navigation}
             />
           </View>
         )}

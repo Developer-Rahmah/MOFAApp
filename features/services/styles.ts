@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 24,
     backgroundColor: Colors.white,
-    paddingTop: 77,
+    paddingTop: 34,
     alignItems: "center",
   },
 
@@ -19,6 +19,11 @@ const styles = StyleSheet.create({
     color: Colors.black,
     fontFamily: Fonts.Almarai700,
     padding: 10,
+  },
+  title: {
+    fontFamily: Fonts.regular,
+    fontSize: 16,
+    marginVertical: 10,
   },
 });
 

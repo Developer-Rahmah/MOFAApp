@@ -14,6 +14,8 @@ export type RootStackParamList = {
   [Routes.HelpScreen]: undefined;
   [Routes.MapScreen]: undefined;
   [Routes.RequestsScreen]: undefined;
+  [Routes.ServiceDetailsScreen]: ServiceTypeProp;
+  [Routes.HelpDetailsScreen]: undefined;
 };
 export type AuthStackParamsList = {
   Login: undefined;
@@ -29,12 +31,14 @@ export type HomeStackParamList = {
   HelpScreen: undefined;
   MapScreen: undefined;
   RequestsScreen: undefined;
+  ServiceDetailsScreen: ServiceTypeProp;
+  HelpDetailsScreen: undefined;
 };
 export type MoreStackParamList = {
   Profile: undefined;
 };
-export type VerificationTypeProp = {
-  code: string | undefined;
+export type ServiceTypeProp = {
+  service: any;
 };
 
 export interface SignInScreenProps {

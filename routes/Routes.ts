@@ -13,7 +13,6 @@ export enum Routes {
   HelpTab = "HelpTab",
   RequestsTab = "RequestsTab",
   HomeTab = "HomeTab",
-  MainNavigator = "MainNavigator",
   DigitalIDsScreen = "DigitalIDsScreen",
   RenewPassportScreen = "RenewPassportScreen",
   ServicesScreen = "ServicesScreen",
@@ -23,6 +22,8 @@ export enum Routes {
   RequestsScreen = "RequestsScreen",
   HomeScreen = "HomeScreen",
   NoInternetConnectionScreen = "NoInternetConnectionScreen",
+  ServiceDetailsScreen = "ServiceDetailsScreen",
+  HelpDetailsScreen = "HelpDetailsScreen",
 }
 
 export default Routes;
